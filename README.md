@@ -17,7 +17,7 @@
  * Reference - https://learn.microsoft.com/en-us/training/modules/learn-mrtk-tutorials/1-3-exercise-configure-unity-for-windows-mixed-reality
 
 ## Import the MRTK Unity foundation package
- * 
  * Reference - https://learn.microsoft.com/en-us/training/modules/learn-mrtk-tutorials/1-5-exercise-configure-resources?tabs=openxr
  
-https://learn.microsoft.com/en-us/windows/mixed-reality/develop/unity/unity-development-overview
+## References
+ * https://learn.microsoft.com/en-us/windows/mixed-reality/develop/unity/unity-development-overview
