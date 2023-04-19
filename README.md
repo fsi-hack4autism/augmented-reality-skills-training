@@ -28,14 +28,18 @@
 
 ### Import the MRTK Unity foundation package
  * Reference - https://learn.microsoft.com/en-us/training/modules/learn-mrtk-tutorials/1-5-exercise-configure-resources?tabs=openxr
- * In case the toolkit doesn't load, you can import individual packages from https://dev.azure.com/aipmr/MixedReality-Unity-Packages/_packaging?_a=feed&feed=Unity-packages
+ * In case the toolkit doesn't load, you can import individual packages in the following sequence from https://dev.azure.com/aipmr/MixedReality-Unity-Packages/_packaging?_a=feed&feed=Unity-packages
    * Mixed Reality OpenXR Plugin: com.microsoft.mixedreality.openxr
+   * Mixed Reality Toolkit Standard Assets: com.microsoft.mixedreality.toolkit.standardassets
    * Mixed Reality Toolkit Foundation: com.microsoft.mixedreality.foundation
    * When the packages are downloaded, they are downloaded as targz
  * Importing packages
    * Assets -> "View in Package Manager"
    * From the plus sign on top left, click on "Add package from tarball"
    * Reference - https://docs.unity3d.com/2021.1/Documentation/Manual/upm-ui-tarball.html
+ * Configure Unity Project for XR
+   * If the MRTK pipelines are not enabled, enable by going to Edit -> Project Settings
+   * Reference - https://docs.unity3d.com/Manual/configuring-project-for-xr.html
  
 ## References
  * https://learn.microsoft.com/en-us/windows/mixed-reality/develop/unity/unity-development-overview
