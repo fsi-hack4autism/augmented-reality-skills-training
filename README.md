@@ -26,7 +26,7 @@
  * Download and install from https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/
  * Ensure that UWP modules are selected while installing
 
-### Import the MRTK Unity foundation package
+## Import the MRTK Unity foundation package
  * Reference - https://learn.microsoft.com/en-us/training/modules/learn-mrtk-tutorials/1-5-exercise-configure-resources?tabs=openxr
  * In case the toolkit doesn't load, you can import individual packages in the following sequence from https://dev.azure.com/aipmr/MixedReality-Unity-Packages/_packaging?_a=feed&feed=Unity-packages
    * Mixed Reality OpenXR Plugin: com.microsoft.mixedreality.openxr
