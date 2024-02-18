@@ -20,3 +20,9 @@ Note: Create all projects in a folder under https://github.com/fsi-hack4autism/a
 * This is the code from Hackathon 2022 
 
 Note: Create all projects in a folder under https://github.com/fsi-hack4autism/augmented-reality-skills-training/tree/main/2022
+
+# Development best practices
+* Create a subfolder under data-ingestion for your project
+* Add a readme.md file to explain the overall objective of your project
+* Indicate the tech stack you are using
+* You can upload further artifacts if you want - such as presentations, documents, excel/csv files etc.
