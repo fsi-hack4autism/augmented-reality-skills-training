@@ -19,4 +19,4 @@ Note: Create all projects in a folder under https://github.com/fsi-hack4autism/a
 ### Hackathon 2022
 * This is the code from Hackathon 2022 
 
-Note: Create all projects in a folder under https://github.com/fsi-hack4autism/friendly-neighborhood/tree/main/2022
+Note: Create all projects in a folder under https://github.com/fsi-hack4autism/augmented-reality-skills-training/tree/main/2022
