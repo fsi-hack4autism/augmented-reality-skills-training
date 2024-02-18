@@ -1,45 +1,22 @@
-# HoloLens-Skills-Training
+# Augmented Reality Skills Training
+This repository is hosted as a part of FSI Hackathon for Autism (https://github.com/fsi-hack4autism)
 
-## Virtual Machine setup
- * Make sure the machine installed is Windows 10
- * Make sure the machine is at least 4vCPUs, 16GiB Memory
- * Download and install Visual Studio 2022 with "Game Development with Unity" module
- * NOTE: You may be able to build the Unity project for Hololens on the VM, but you may not be able to run on it
+## Objective: Teach basic job skills to people with autism using Augmented Reality
+This use case will focus on the use of Augmented Reality for teaching job skills to people with Autism, particularly those aging out of the supports provided in the school environment. Unemployment for those with Autism is significant and the supports in the work environment are limited. The use case will use Unity engine to build Augmented Reality solutions that can be used on platforms like HoloLens to help with basic job skills by presenting visual cues on how to complete task such as stocking shelves or preparing food. 
+Additonally, the use case will make use of Gen AI, to manage, evaluate, and provide feedback to the student on how well the skill is being performed. It can also be used to generated the slight variants and increasingly complex scenarios to practice and introduce gamification.
+This will also address the issue of scaability - moving away from 1:1 support to a 1:N as an a student becomes an adult.
+### Sample Scenarios
+The skills th application will focus on can include one or more of the following:
+* **Stacking shelves in a store** – e.g., making sure all the labels are facing outwards, etc.
+* **Setting up a table in a restaurant** – making sure all the cutlery is there an arranged properly
+* **Setting up a catering tray** – e.g., making sure all items are placed properly
 
-## Dev environment setup
+## Code repository setup
+### Sample HoloLens
+* This is a sample hololens project that you can use as a reference to get started with Unity 3D development
 
-### Setup Unity Hub
- * Configure your Visual Studio environment by installing the following modules while installing Visual Studio
-   * "Game Development with Unity"
-   * "UWP Development" - make sure all C++ modules and Windows SDK modules (11 and 10) are selected
- * Once installed, launch Unity Hub from a nenly created desktop icon
- * Make sure you have the latest version (v3.4.2)
- * On relaunching, you will get prompted for installing Unity Editor - go ahead and install it (this might take up to 3 hours)
+Note: Create all projects in a folder under https://github.com/fsi-hack4autism/augmented-reality-skills-training/tree/main/Sample%20Hololens
+### Hackathon 2022
+* This is the code from Hackathon 2022 
 
-### Create Unity Hub project
- * On launching after the install
- * If Universal Windows Platform is nto installed, you will need to install it
-   * Launch Unity Hub, open File -> Build Settings -> UWP. This will prompt you to install UWP. Note, you may have to restart Unity to see corretion options
- * Reference - https://learn.microsoft.com/en-us/training/modules/learn-mrtk-tutorials/1-3-exercise-configure-unity-for-windows-mixed-reality
- 
-## Install Windows SDK
- * Download and install from https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/
- * Ensure that UWP modules are selected while installing
-
-## Import the MRTK Unity foundation package
- * Reference - https://learn.microsoft.com/en-us/training/modules/learn-mrtk-tutorials/1-5-exercise-configure-resources?tabs=openxr
- * In case the toolkit doesn't load, you can import individual packages in the following sequence from https://dev.azure.com/aipmr/MixedReality-Unity-Packages/_packaging?_a=feed&feed=Unity-packages
-   * Mixed Reality OpenXR Plugin: com.microsoft.mixedreality.openxr
-   * Mixed Reality Toolkit Standard Assets: com.microsoft.mixedreality.toolkit.standardassets
-   * Mixed Reality Toolkit Foundation: com.microsoft.mixedreality.foundation
-   * When the packages are downloaded, they are downloaded as targz
- * Importing packages
-   * Assets -> "View in Package Manager"
-   * From the plus sign on top left, click on "Add package from tarball"
-   * Reference - https://docs.unity3d.com/2021.1/Documentation/Manual/upm-ui-tarball.html
- * Configure Unity Project for XR
-   * If the MRTK pipelines are not enabled, enable by going to Edit -> Project Settings
-   * Reference - https://docs.unity3d.com/Manual/configuring-project-for-xr.html
- 
-## References
- * https://learn.microsoft.com/en-us/windows/mixed-reality/develop/unity/unity-development-overview
+Note: Create all projects in a folder under https://github.com/fsi-hack4autism/friendly-neighborhood/tree/main/2022
