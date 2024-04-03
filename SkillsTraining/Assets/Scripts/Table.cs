@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 
-public class Shelves : MonoBehaviour
+public class Table : MonoBehaviour
 {
     [SerializeField]
     private ARMeshManager ARMeshManager;
@@ -16,10 +16,16 @@ public class Shelves : MonoBehaviour
     private Collider PlacementCollider;
 
     [SerializeField]
-    private List<Collider> ShelvesColliders;
+    private List<Collider> TableColliders;
 
     [SerializeField]
     private TapToPlace TapToPlace;
+
+    [SerializeField]
+    private GameObject[] PlaceableObjects;
+
+    [SerializeField]
+    private Transform[] PlaceablesSpawnPoints;
 
     private Action _placementDoneCallback = null;
 
@@ -36,9 +42,9 @@ public class Shelves : MonoBehaviour
 
         PlacementCollider.enabled = true;
 
-        foreach (Collider shelfColliders in ShelvesColliders)
+        foreach (Collider tableColliders in TableColliders)
         {
-            shelfColliders.enabled = false;
+            tableColliders.enabled = false;
         }
 
         _placementDoneCallback += placementDoneCallback;
@@ -51,18 +57,37 @@ public class Shelves : MonoBehaviour
     {
         TapToPlace.OnPlacingStopped.RemoveListener(OnPlacementStopped);
 
-        //ARMeshManager.DestroyAllMeshes();
+        ARMeshManager.DestroyAllMeshes();
 
         ARMeshManager.gameObject.SetActive(false);
 
         PlacementCollider.enabled = false;
 
-        foreach (Collider shelfColliders in ShelvesColliders)
+        foreach (Collider tableColliders in TableColliders)
         {
-            shelfColliders.enabled = true;
+            tableColliders.enabled = true;
         }
+
+        SpawnPlaceables();
 
         _placementDoneCallback?.Invoke();
         _placementDoneCallback = null;
+    }
+
+    private void SpawnPlaceables()
+    {
+        int numPlacables = PlaceableObjects.Length;
+
+        if (numPlacables == 0)
+            return;
+
+        for (int i = 0; i < PlaceablesSpawnPoints.Length; i++)
+        {
+            int randomIndex = UnityEngine.Random.Range(0, numPlacables);
+
+            GameObject placeablePrefab = PlaceableObjects[randomIndex];
+
+            GameObject placeable = Instantiate(placeablePrefab, PlaceablesSpawnPoints[i]);
+        }
     }
 }
