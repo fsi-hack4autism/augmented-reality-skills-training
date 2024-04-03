@@ -79,6 +79,7 @@ UpgradeLog*.htm
 #################################
 # Unity3D generated files
 Packages-Update.log
+ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json
 
 # Unity3D folders
 [Ll]ibrary/
@@ -92,8 +93,9 @@ Assets/AssetStoreTools*
 Assets/StreamingAssets*
 UserSettings/
 
-# Unity3D project solution
+# Unity3D generated VS projects
 SkillsTraining.sln
+Assembly-CSharp.csproj
 
 # Unity3D manifest backups
 manifest.json.backup*
