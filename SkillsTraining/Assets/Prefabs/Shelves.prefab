@@ -639,6 +639,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2949103722121818004}
+  - component: {fileID: 3320157760909986023}
   - component: {fileID: 420335161006939261}
   - component: {fileID: 6112044950360501182}
   - component: {fileID: 8803345463363526658}
@@ -674,6 +675,32 @@ Transform:
   - {fileID: 6812551548379055364}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3320157760909986023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6886312984100850415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f82a5486a06ca1448983dd88e120c78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ARMeshManager: {fileID: 0}
+  PlacementCollider: {fileID: 8803345463363526658}
+  ShelvesColliders:
+  - {fileID: 5692979289405246044}
+  - {fileID: 5751941623378380295}
+  - {fileID: 1320839285812194005}
+  - {fileID: 1898514512000595186}
+  - {fileID: 4257893185656632088}
+  - {fileID: 7830964633219641037}
+  - {fileID: 546548587997081227}
+  - {fileID: 7956344396212052244}
+  - {fileID: 9138939180635751448}
+  - {fileID: 8562732743122063066}
+  TapToPlace: {fileID: 6112044950360501182}
 --- !u!114 &420335161006939261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -714,7 +741,7 @@ MonoBehaviour:
   maintainScaleOnInitialization: 1
   smoothing: 1
   lifetime: 0
-  autoStart: 1
+  autoStart: 0
   defaultPlacementDistance: 1.5
   maxRaycastDistance: 20
   surfaceNormalOffset: 0
@@ -750,8 +777,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2, z: 0.5}
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Size: {x: 1, y: 1.71, z: 0.29}
+  m_Center: {x: 0, y: -0.23, z: 0}
 --- !u!1 &7086063114852469058
 GameObject:
   m_ObjectHideFlags: 0
