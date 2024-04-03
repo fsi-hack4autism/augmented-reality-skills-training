@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AppFlowManager : MonoBehaviour
@@ -15,6 +13,9 @@ public class AppFlowManager : MonoBehaviour
 
     [SerializeField]
     private Shelves Shelves;
+
+    [SerializeField]
+    private Table Table;
 
     private AppFlowState _currentState = AppFlowState.Setup_PlaceShelves;
 
@@ -33,11 +34,19 @@ public class AppFlowManager : MonoBehaviour
             case AppFlowState.Setup_PlaceShelves:
                 Shelves.StartPlacement(OnShelfPlacementDone);
                 break;
+            case AppFlowState.Setup_PlaceTable:
+                Table.StartPlacement(OnTablePlacementDone);
+                break;
         }
     }
 
     private void OnShelfPlacementDone()
     {
         SwitchState(AppFlowState.Setup_PlaceTable);
+    }
+
+    private void OnTablePlacementDone()
+    {
+        SwitchState(AppFlowState.TaskExplanation);
     }
 }
