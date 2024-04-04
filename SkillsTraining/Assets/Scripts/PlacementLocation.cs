@@ -6,47 +6,82 @@ public class PlacementLocation : MonoBehaviour
     [SerializeField]
     private string LocationDescription;
 
-    private List<PlaceableObject> PlacedObjects = new List<PlaceableObject>();
+    public List<PlaceableObject> PlacedObjects => placedObjects; 
+
+    private List<PlaceableObject> placedObjects = new List<PlaceableObject>();
 
     public void AddPlacedObject(PlaceableObject placedObject)
     {
-        PlacedObjects.Add(placedObject);
+        placedObjects.Add(placedObject);
     }
 
     public void RemovePlacedObject(PlaceableObject removedObject)
     {
-        PlacedObjects.Remove(removedObject);
+        placedObjects.Remove(removedObject);
     }
 
     public string GetPlacementDescription()
     {
-        if (PlacedObjects.Count == 0)
+        if (placedObjects.Count == 0)
             return string.Empty;
 
-        string description = "On the " + LocationDescription + " there ";
+        //The first item on the second shelf is a blue car
+        //The second item on the second shelf is a blue car
+        //The third item on the second shelf is an orange car
+        //The fourth item on the second shelf is an orange car
+        //The fifth item on the second shelf is a yellow car
+        //The first item on the first shelf is a stuffed toy
+        //The second item on the first shelf is a black book
+        //The third item on the first shelf is a red book
+        //The fourth item on the first shelf is a blue book
+        //The First item on the third shelf is a blue dice
 
-        if (PlacedObjects.Count <= 2)
+        string[] ordinals = new string[16]
         {
-            description += " is a " + PlacedObjects[0].Description;
+            "first",
+            "second",
+            "third",
+            "fourth",
+            "fifth",
+            "sixth",
+            "seventh",
+            "eighth",
+            "ninth",
+            "tenth",
+            "elventh",
+            "twelveth",
+            "thirteenth",
+            "fourteenth",
+            "fifteenth",
+            "sixteenth"
+        };
 
-            if (PlacedObjects.Count == 2)
+        string description = "On the " + LocationDescription + " there";
+
+        if (placedObjects.Count <= 2)
+        {
+            description += " is a " + placedObjects[0].Description;
+
+            if (placedObjects.Count == 2)
             {
-                description += " and a " + PlacedObjects[1].Description;
+                description += " and a " + placedObjects[1].Description;
             }
+
+            description += ".";
         }
         else
         {
             description += " is ";
 
-            for (int i = 0; i < PlacedObjects.Count; i++)
+            for (int i = 0; i < placedObjects.Count; i++)
             {
-                description += "a " + PlacedObjects[i].Description;
+                description += "a " + placedObjects[i].Description;
 
-                if (i == PlacedObjects.Count - 1)
+                if (i == placedObjects.Count - 1)
                 {
                     description += ".";
                 }
-                else if (i == PlacedObjects.Count - 2)
+                else if (i == placedObjects.Count - 2)
                 {
                     description += ", and ";
                 }
@@ -58,5 +93,21 @@ public class PlacementLocation : MonoBehaviour
         }
 
         return description;
+    }
+
+    public List<string> GetFormattedDescriptions()
+    {
+        List<string> formattedDescriptions = new List<string>();
+
+        //['userA puts Red Elephant on First Row', 'userA puts Red Elephant on Second Row' ,'userA puts Blue Car on Second Row']
+
+        foreach (PlaceableObject placedObject in placedObjects)
+        {
+            string placedObjectDescription = "'userA puts " + placedObject.Description + " on " + LocationDescription + "'";
+
+            formattedDescriptions.Add(placedObjectDescription);
+        }
+
+        return formattedDescriptions;
     }
 }
