@@ -19,8 +19,8 @@ public class Shelves : PlaceableProp
     [SerializeField]
     private TMP_Text PlacementDescriptionText;
 
-    [SerializeField]
-    private TMP_Text FormattedDescriptionText;
+    //[SerializeField]
+    //private TMP_Text FormattedDescriptionText;
 
     [SerializeField]
     private List<Shelf> Shelfs;
@@ -46,6 +46,37 @@ public class Shelves : PlaceableProp
     };
 
     private void Update()
+    {
+        PlacementDescriptionText.text = GetPlacementDescription();
+
+        ////['userA puts Red Elephant on First Row', 'userA puts Red Elephant on Second Row' ,'userA puts Blue Car on Second Row']
+        //string formattedDescription = "[";
+
+        //List<string> formattedDescriptions = new List<string>();
+
+        //foreach (PlacementLocation location in PlacementLocations)
+        //{
+        //    List<string> formattedLocationDescriptions = location.GetFormattedDescriptions();
+
+        //    formattedDescriptions.AddRange(formattedLocationDescriptions);
+        //}
+
+        //for (int i = 0; i < formattedDescriptions.Count; i++)
+        //{
+        //    formattedDescription += formattedDescriptions[i];
+
+        //    if (i < formattedDescriptions.Count - 1)
+        //    {
+        //        formattedDescription += ", ";
+        //    }
+        //}
+
+        //formattedDescription += "]";
+
+        //FormattedDescriptionText.text = formattedDescription;
+    }
+
+    public string GetPlacementDescription()
     {
         string placementDescription = "";
 
@@ -75,32 +106,6 @@ public class Shelves : PlaceableProp
             }
         }
 
-        PlacementDescriptionText.text = placementDescription;
-
-        //['userA puts Red Elephant on First Row', 'userA puts Red Elephant on Second Row' ,'userA puts Blue Car on Second Row']
-        string formattedDescription = "[";
-
-        List<string> formattedDescriptions = new List<string>();
-
-        foreach (PlacementLocation location in PlacementLocations)
-        {
-            List<string> formattedLocationDescriptions = location.GetFormattedDescriptions();
-
-            formattedDescriptions.AddRange(formattedLocationDescriptions);
-        }
-
-        for (int i = 0; i < formattedDescriptions.Count; i++)
-        {
-            formattedDescription += formattedDescriptions[i];
-
-            if (i < formattedDescriptions.Count - 1)
-            {
-                formattedDescription += ", ";
-            }
-        }
-
-        formattedDescription += "]";
-
-        FormattedDescriptionText.text = formattedDescription;
+        return placementDescription;
     }
 }
