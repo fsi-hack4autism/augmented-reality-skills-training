@@ -30,8 +30,24 @@ class AzureOpenaiCaller:
 
 
     
-
+import argparse
 if __name__ == "__main__":
+        
+    # defined command line options
+    # this also generates --help and error handling
+    CLI=argparse.ArgumentParser()
+    CLI.add_argument(
+    "--listActions",  # name on the CLI - drop the `--` for positional/required parameters
+    nargs="*",  # 0 or more values expected => creates a list
+    type=str,
+    default=['userA puts Red Elephant on First Row', 'userA puts Red Elephant on Second Row' ,'userA puts Blue Car on Second Row'],  # default if nothing is provided
+    )
+   
+    # parse the command line
+    args = CLI.parse_args()
+    print(args)
+    user_actions = args.listActions
+    # user_actions = ['userA puts Red Elephant on First Row', 'userA puts Red Elephant on Second Row' ,'userA puts Blue Car on Second Row']
     user_actions = ['userA puts Red Elephant on First Row', 'userA puts Red Elephant on Second Row' ,'userA puts Blue Car on Second Row']
     caller = AzureOpenaiCaller()
     response_text = caller.call_azure_openai(user_actions)
