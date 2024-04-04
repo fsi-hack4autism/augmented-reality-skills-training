@@ -15,7 +15,7 @@ public class PlaceableProp : MonoBehaviour
     private bool isPlacing = false;
     private Action placementDoneCallback = null;
 
-    private void Start()
+    private void Awake()
     {
         VisualRoot.SetActive(false);
     }

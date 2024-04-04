@@ -159,6 +159,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8391205254128468463, guid: 23d1d1e9d6c3dbf4199adfd65931499e, type: 3}
+      propertyPath: ObjectDesciption
+      value: Stuffed Bear
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

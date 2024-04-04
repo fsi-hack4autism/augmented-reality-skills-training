@@ -1,13 +1,19 @@
+using GLTFast.Schema;
 using System.Collections;
 using UnityEngine;
 
 public class PlaceableObject : MonoBehaviour
 {
     [SerializeField]
+    private string ObjectDesciption;
+
+    [SerializeField]
     private Rigidbody Rigidbody;
 
     [SerializeField]
     private float PhysicsSettlingTime = 1.0f;
+
+    public string Description => ObjectDesciption;
 
     private Coroutine _physicsSettlingCR = null;
 
@@ -45,5 +51,29 @@ public class PlaceableObject : MonoBehaviour
         Rigidbody.isKinematic = false;
 
         _physicsSettlingCR = null;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        PlacementLocation placementLocation = other.gameObject.GetComponent<PlacementLocation>();
+
+        if (placementLocation != null)
+        {
+            placementLocation.AddPlacedObject(this);
+
+            this.transform.parent = placementLocation.transform;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        PlacementLocation placementLocation = other.gameObject.GetComponent<PlacementLocation>();
+
+        if (placementLocation != null)
+        {
+            placementLocation.RemovePlacedObject(this);
+
+            this.transform.parent = null;
+        }
     }
 }
