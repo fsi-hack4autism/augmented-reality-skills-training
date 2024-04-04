@@ -19,12 +19,12 @@ class AzureOpenaiCaller:
         prompt_str_suffix = "\"['" + "','".join(user_actions) + "']\""+"}]} "
         
         prompt_str= prompt_str_prefix + prompt_str_suffix
-        print(prompt_str )
+        # print(prompt_str )
         json_data= json.loads(prompt_str)
         response = requests.post(f"{endpoint}", headers=headers, json=json_data )
         
         if response.status_code == 200:
-            return response.json()['choices'][0] 
+            return response.json()['choices'][0]['message']['content']
         else:
             return f"Error: {response.status_code}, {response.text}"
 
@@ -45,7 +45,7 @@ if __name__ == "__main__":
    
     # parse the command line
     args = CLI.parse_args()
-    print(args)
+    # print(args)
     user_actions = args.listActions
     # user_actions = ['userA puts Red Elephant on First Row', 'userA puts Red Elephant on Second Row' ,'userA puts Blue Car on Second Row']
     user_actions = ['userA puts Red Elephant on First Row', 'userA puts Red Elephant on Second Row' ,'userA puts Blue Car on Second Row']
