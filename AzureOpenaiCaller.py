@@ -1,5 +1,7 @@
 import requests
 import json
+import azure.cognitiveservices.speech as speechsdk
+
 class AzureOpenaiCaller:
     def call_azure_openai(self, user_actions):
     # Replace these with your Azure OpenAI endpoint and API key
@@ -19,14 +21,35 @@ class AzureOpenaiCaller:
         prompt_str_suffix = "\"['" + "','".join(user_actions) + "']\""+"}]} "
         
         prompt_str= prompt_str_prefix + prompt_str_suffix
-        # print(prompt_str )
+        print(prompt_str )
         json_data= json.loads(prompt_str)
         response = requests.post(f"{endpoint}", headers=headers, json=json_data )
         
         if response.status_code == 200:
-            return response.json()['choices'][0]['message']['content']
+            return response.json()['choices'][0]['message']['content'] 
         else:
             return f"Error: {response.status_code}, {response.text}"
+        
+
+
+
+    def text_to_speech(self, text, output_file):
+        # Set up the speech configuration
+        speech_config = speechsdk.SpeechConfig(subscription="4fc91161d833453b95a5bb8e2f68cfe7", region="eastus")
+
+        # Create a speech synthesizer
+        speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config)
+
+        # Synthesize the speech
+        result = speech_synthesizer.speak_text_async(text).get()
+
+        # Save the synthesized speech to a file
+        if result.reason == speechsdk.ResultReason.SynthesizingAudioCompleted:
+            audio_data = result.audio_data
+            with open(output_file, "wb") as file:
+                file.write(audio_data)
+
+
 
 
     
@@ -42,21 +65,32 @@ if __name__ == "__main__":
     type=str,
     default=['userA puts Red Elephant on First Row', 'userA puts Red Elephant on Second Row' ,'userA puts Blue Car on Second Row'],  # default if nothing is provided
     )
-   
+    CLI.add_argument(
+    "--voice",  # name on the CLI - drop the `--` for positional/required parameters
+      # 0 or more values expected => creates a list
+    type=bool,
+    default=False
+    )
     # parse the command line
     args = CLI.parse_args()
-    # print(args)
+    print(args)
     user_actions = args.listActions
     # user_actions = ['userA puts Red Elephant on First Row', 'userA puts Red Elephant on Second Row' ,'userA puts Blue Car on Second Row']
     user_actions = ['userA puts Red Elephant on First Row', 'userA puts Red Elephant on Second Row' ,'userA puts Blue Car on Second Row']
     caller = AzureOpenaiCaller()
     response_text = caller.call_azure_openai(user_actions)
     print(response_text)
+    # Example usage
+ 
+    if args.voice : 
+        output_file = "output.wav"
+        caller.text_to_speech(response_text, output_file)
+   
 
 
     
 # Example prompt
-user_actions = ['userA puts Red Elephant on First Row','userA puts Red Elephant on Second Row','userA puts Blue Car on Second Row']
+# user_actions = ['userA puts Red Elephant on First Row','userA puts Red Elephant on Second Row','userA puts Blue Car on Second Row']
 
 
 
