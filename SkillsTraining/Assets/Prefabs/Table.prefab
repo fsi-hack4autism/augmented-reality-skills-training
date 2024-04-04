@@ -194,7 +194,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -316,7 +316,7 @@ Transform:
   m_GameObject: {fileID: 4610132154390619626}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.984, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -383,7 +383,7 @@ Transform:
   m_GameObject: {fileID: 5466202758681671130}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: -0.34, z: 0}
+  m_LocalPosition: {x: 0, y: 0.645, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -500,7 +500,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -548,7 +548,7 @@ GameObject:
   - component: {fileID: 8325296043953320059}
   - component: {fileID: 1745601459808845051}
   m_Layer: 0
-  m_Name: Shelf (1)
+  m_Name: Table Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -636,7 +636,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -741,7 +741,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -756,8 +756,7 @@ GameObject:
   - component: {fileID: 2108779658889980983}
   - component: {fileID: 19642379375547871}
   - component: {fileID: 6298240228290741137}
-  - component: {fileID: 1438500174635531269}
-  - component: {fileID: 7436114771772563776}
+  - component: {fileID: 939332854025620695}
   m_Layer: 0
   m_Name: Table
   m_TagString: Untagged
@@ -794,16 +793,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae0b446dd413fdf47bc83e7f7e98743d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ARMeshManager: {fileID: 0}
+  SpatialMeshManager: {fileID: 0}
+  PlacementSolver: {fileID: 939332854025620695}
   VisualRoot: {fileID: 4610132154390619626}
-  PlacementCollider: {fileID: 7436114771772563776}
-  TableColliders:
-  - {fileID: 6492653580360124668}
-  - {fileID: 3503588633352994886}
-  - {fileID: 7437447089157478280}
-  - {fileID: 541274294836156081}
-  - {fileID: 1745601459808845051}
-  TapToPlace: {fileID: 1438500174635531269}
   PlaceableObjects:
   - {fileID: 1236866872578266511, guid: 8e67812e7d109084e9af8ca610f627b4, type: 3}
   - {fileID: 2990816170344310759, guid: b33df9f95044e6844869c68dd44b0fbc, type: 3}
@@ -854,7 +846,7 @@ MonoBehaviour:
   additionalOffset: {x: 0, y: 0, z: 0}
   additionalRotation: {x: 0, y: 0, z: 0}
   updateSolvers: 1
---- !u!114 &1438500174635531269
+--- !u!114 &939332854025620695
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -863,54 +855,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 7022670047131559056}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef52421bb8639ef4a80a74143e7afcfe, type: 3}
+  m_Script: {fileID: 11500000, guid: fb8fb0553014d144c827bdc25fe1e30c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   updateLinkedTransform: 0
-  moveLerpTime: 0.1
+  moveLerpTime: 0.5
   rotateLerpTime: 0.1
   scaleLerpTime: 0
   maintainScaleOnInitialization: 1
   smoothing: 1
   lifetime: 0
-  autoStart: 0
-  defaultPlacementDistance: 1.5
-  maxRaycastDistance: 20
-  surfaceNormalOffset: 0
-  useDefaultSurfaceNormalOffset: 1
-  keepOrientationVertical: 1
-  rotateAccordingToSurface: 0
-  magneticSurfaces:
+  FloorFinder: {fileID: 0}
+  DefaultPlacementDistance: 3
+  MaxRaycastDistance: 3.5
+  SurfaceNormalOffset: 0.15
+  FloatingOffset: -1.6
+  MagneticSurfaces:
   - serializedVersion: 2
-    m_Bits: 4294967291
-  debugEnabled: 1
-  onPlacingStarted:
-    m_PersistentCalls:
-      m_Calls: []
+    m_Bits: 8
   onPlacingStopped:
     m_PersistentCalls:
       m_Calls: []
---- !u!65 &7436114771772563776
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7022670047131559056}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.06, y: 0.67, z: 0.32}
-  m_Center: {x: 0, y: -0.66, z: 0}
 --- !u!1 &7077552495811614080
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,7 +977,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
