@@ -869,7 +869,7 @@ MonoBehaviour:
   DefaultPlacementDistance: 3
   MaxRaycastDistance: 3.5
   SurfaceNormalOffset: 0.15
-  FloatingOffset: -1.6
+  FloatingOffset: -0.7
   MagneticSurfaces:
   - serializedVersion: 2
     m_Bits: 8
