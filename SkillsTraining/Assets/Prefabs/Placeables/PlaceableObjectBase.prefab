@@ -333,7 +333,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   hostTransform: {fileID: 8090345620373987855}
-  allowedManipulations: 1
+  allowedManipulations: 3
   allowedInteractionTypes: -2147483641
   rigidbodyMovementType: 0
   applyTorque: 1
